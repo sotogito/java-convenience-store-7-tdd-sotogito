@@ -18,6 +18,11 @@ public class Promotion {
         this.endDate = endDate;
     }
 
+    public boolean isValidDate(LocalDateTime date) {
+        return (startDate.isBefore(date) && endDate.isAfter(date))
+                || startDate.isEqual(date) || endDate.isEqual(date);
+    }
+
     public String getName() {
         return name;
     }

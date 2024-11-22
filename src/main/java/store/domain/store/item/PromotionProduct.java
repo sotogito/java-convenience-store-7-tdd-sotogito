@@ -1,5 +1,8 @@
 package store.domain.store.item;
 
+import java.time.LocalDateTime;
+import store.constants.ProductType;
+
 public class PromotionProduct extends Product {
     private final Promotion promotion;
 
@@ -8,6 +11,13 @@ public class PromotionProduct extends Product {
         this.promotion = promotion;
     }
 
+    public boolean isValidDate(LocalDateTime date) {
+        return promotion.isValidDate(date);
+    }
+
+    public ProductType getType() {
+        return ProductType.PROMOTION;
+    }
 
     @Override
     public String toString() {

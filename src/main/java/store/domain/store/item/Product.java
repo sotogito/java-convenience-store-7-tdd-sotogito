@@ -1,5 +1,7 @@
 package store.domain.store.item;
 
+import store.constants.ProductType;
+
 public class Product {
     private final String name;
     private final int price;
@@ -17,6 +19,14 @@ public class Product {
 
     public Product makeSoldOutProduct() {
         return new Product(this.name, this.price, 0);
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public ProductType getType() {
+        return ProductType.GENERAL;
     }
 
     @Override
