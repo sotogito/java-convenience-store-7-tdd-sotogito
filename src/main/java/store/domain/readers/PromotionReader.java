@@ -30,7 +30,7 @@ public class PromotionReader {
                 LocalDate startLocalData = LocalDate.parse(splitLine[3], DateTimeFormatter.ofPattern("yyyy-MM-dd"));
                 LocalDateTime startDate = startLocalData.atStartOfDay();
 
-                LocalDate endLocalData = LocalDate.parse(splitLine[3], DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+                LocalDate endLocalData = LocalDate.parse(splitLine[4], DateTimeFormatter.ofPattern("yyyy-MM-dd"));
                 LocalDateTime endDate = endLocalData.atStartOfDay();
 
                 Promotion promotion = new Promotion(name, buy, get, startDate, endDate);
