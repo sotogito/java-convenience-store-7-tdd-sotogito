@@ -6,6 +6,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import store.domain.item.Product;
 import store.domain.item.Promotion;
+import store.domain.items.Promotions;
 
 class ProductReaderTest {
 

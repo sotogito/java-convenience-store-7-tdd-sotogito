@@ -7,4 +7,11 @@ public class PromotionProduct extends Product {
         super(name, price, quantity);
         this.promotion = promotion;
     }
+
+
+    @Override
+    public String toString() {
+        String printout = "%s %s";
+        return String.format(printout, super.toString(), promotion.getName());
+    }
 }

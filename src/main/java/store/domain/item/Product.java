@@ -11,4 +11,23 @@ public class Product {
         this.quantity = quantity;
     }
 
+    public boolean isSameName(String name) {
+        return this.name.equals(name);
+    }
+
+    public Product makeSoldOutProduct() {
+        return new Product(this.name, this.price, 0);
+    }
+
+    @Override
+    public String toString() {
+        String printout = "- %s %,d원 %,d개";
+        String soldOutPrintout = "- %s %,d원 재고 없음";
+
+        if (quantity <= 0) {
+            return String.format(soldOutPrintout, name, price);
+        }
+        return String.format(printout, name, price, quantity);
+    }
+
 }
