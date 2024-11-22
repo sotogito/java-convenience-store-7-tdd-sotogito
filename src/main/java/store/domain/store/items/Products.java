@@ -2,6 +2,7 @@ package store.domain.store.items;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import store.constants.ProductType;
 import store.domain.store.item.Product;
 import store.domain.store.item.PromotionProduct;
 
@@ -36,6 +37,18 @@ public class Products {
             }
         }
         return totalStock >= quantity;
+    }
+
+    public Product findGeneralProductByName(String name) {
+        for (Product product : products) {
+            if (product.getType().equals(ProductType.PROMOTION)) {
+                continue;
+            }
+            if (product.isSameName(name)) {
+                return product;
+            }
+        }
+        return null;
     }
 
     @Override

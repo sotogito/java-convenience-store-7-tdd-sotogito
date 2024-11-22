@@ -1,16 +1,25 @@
 package store.domain;
 
 import store.constants.ProductType;
+import store.domain.store.ConvenienceStoreroom;
 import store.domain.store.item.Product;
 import store.domain.store.item.PromotionProduct;
 
 public class Order {
     private final Product product;
-    private final int quantity;
+    private int quantity;
 
     public Order(Product product, int quantity) {
         this.product = product;
         this.quantity = quantity;
+    }
+
+    public void addPurchaseQuantity(int addQuantity) {
+        this.quantity += addQuantity;
+    }
+
+    public void deletePurchaseQuantity(int deleteQuantity) {
+        this.quantity -= deleteQuantity;
     }
 
     public boolean isCanNotPromotionProduct() {
@@ -57,9 +66,21 @@ public class Order {
         return 0;
     }
 
+    public String getName() {
+        return product.getName();
+    }
 
     public ProductType getProductType() {
         return product.getType();
+    }
+
+    public Order makeNewGeneralProductOrder(int quantity, ConvenienceStoreroom storeroom) {
+        return new Order(storeroom.findGeneralProductByName(product.getName()), quantity);
+    }
+
+    @Override
+    public String toString() {
+        return product.getName() + ":" + quantity;
     }
 
 }

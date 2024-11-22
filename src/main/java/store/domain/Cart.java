@@ -41,4 +41,22 @@ public class Cart {
         return result;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+
+        builder.append("프로모션\n");
+        for (Order order : generalOrder) {
+            builder.append(order.toString());
+            builder.append("\n");
+        }
+
+        builder.append("일반\n");
+        for (Order order : promotionOrder) {
+            builder.append(order.toString());
+            builder.append("\n");
+        }
+        return builder.toString();
+    }
+
 }

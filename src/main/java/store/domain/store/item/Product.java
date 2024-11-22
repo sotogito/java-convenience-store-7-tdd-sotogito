@@ -36,9 +36,14 @@ public class Product {
         return quantity;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     public ProductType getType() {
         return ProductType.GENERAL;
     }
+
 
     @Override
     public String toString() {

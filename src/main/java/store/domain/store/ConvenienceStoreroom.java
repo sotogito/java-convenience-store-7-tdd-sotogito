@@ -27,6 +27,10 @@ public class ConvenienceStoreroom {
         return products.isEnoughStock(name, quantity);
     }
 
+    public Product findGeneralProductByName(String name) {
+        return products.findGeneralProductByName(name);
+    }
+
     @Override
     public String toString() {
         return products.toString();
