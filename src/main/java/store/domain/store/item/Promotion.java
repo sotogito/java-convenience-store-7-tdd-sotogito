@@ -19,8 +19,33 @@ public class Promotion {
     }
 
     public boolean isValidDate(LocalDateTime date) {
-        return (startDate.isBefore(date) && endDate.isAfter(date))
-                || startDate.isEqual(date) || endDate.isEqual(date);
+        if (endDate.isAfter(date) && startDate.isBefore(date)) {
+            return true;
+        } else if (startDate.equals(date) || endDate.equals(date)) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isOverMinBuyQuantity(int quantity) {
+        return quantity >= buy;
+
+    }
+
+    public int getGetCount() {
+        return get;
+    }
+
+    public int calculatePromotionCount(int purchaseQuantity) {
+        if (purchaseQuantity >= buy) {
+            int bundle = purchaseQuantity / getPromotionBundle();
+            return bundle * getPromotionBundle();
+        }
+        return 0;
+    }
+
+    private int getPromotionBundle() {
+        return get + buy;
     }
 
     public String getName() {

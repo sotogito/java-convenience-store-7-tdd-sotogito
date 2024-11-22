@@ -17,6 +17,10 @@ public class Product {
         return this.name.equals(name);
     }
 
+    public boolean isSufficientQuantity(int quantity) {
+        return this.quantity >= quantity;
+    }
+
     public Product makeSoldOutProduct() {
         return new Product(this.name, this.price, 0);
     }

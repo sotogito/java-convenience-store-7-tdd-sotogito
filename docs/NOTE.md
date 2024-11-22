@@ -18,7 +18,7 @@
 
 ### 주문
 
-- OrderParser : String -> OrderForm
+- OrderParser : String -> OrderForm - 정규식캡쳐사용
 - OrderForm(r)
 
 - Order

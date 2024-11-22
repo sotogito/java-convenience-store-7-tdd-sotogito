@@ -21,5 +21,14 @@ public class Cart {
         generalOrder.add(order);
     }
 
+    public List<Order> getAddablePromotionProductOrders() {
+        List<Order> result = new ArrayList<>();
+        for (Order order : promotionOrder) {
+            if (order.isCanAddablePromotionProduct()) {
+                result.add(order);
+            }
+        }
+        return result;
+    }
 
 }

@@ -11,6 +11,19 @@ public class PromotionProduct extends Product {
         this.promotion = promotion;
     }
 
+    public int getTotalPromotionCount(int purchaseQuantity) {
+        return promotion.calculatePromotionCount(purchaseQuantity);
+    }
+
+    public int getAddablePromotionCount() {
+        return promotion.getGetCount();
+
+    }
+
+    public boolean isValidMinBuyQuantity(int quantity) {
+        return promotion.isOverMinBuyQuantity(quantity);
+    }
+
     public boolean isValidDate(LocalDateTime date) {
         return promotion.isValidDate(date);
     }
