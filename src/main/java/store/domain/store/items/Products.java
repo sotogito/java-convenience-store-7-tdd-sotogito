@@ -1,7 +1,7 @@
-package store.domain.items;
+package store.domain.store.items;
 
 import java.util.List;
-import store.domain.item.Product;
+import store.domain.store.item.Product;
 
 public class Products {
     private final List<Product> products;

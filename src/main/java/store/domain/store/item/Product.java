@@ -1,4 +1,4 @@
-package store.domain.item;
+package store.domain.store.item;
 
 public class Product {
     private final String name;

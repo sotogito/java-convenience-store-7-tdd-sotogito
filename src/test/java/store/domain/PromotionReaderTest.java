@@ -4,7 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import store.domain.item.Promotion;
+import store.domain.readers.PromotionReader;
+import store.domain.store.item.Promotion;
 
 class PromotionReaderTest {
 

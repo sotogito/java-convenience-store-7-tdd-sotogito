@@ -1,4 +1,4 @@
-package store.domain;
+package store.domain.readers;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import store.domain.item.Promotion;
+import store.domain.store.item.Promotion;
 
 public class PromotionReader {
 

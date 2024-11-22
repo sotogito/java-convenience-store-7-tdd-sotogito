@@ -1,7 +1,7 @@
-package store.domain.items;
+package store.domain.store.items;
 
 import java.util.List;
-import store.domain.item.Promotion;
+import store.domain.store.item.Promotion;
 
 public class Promotions {
     private final List<Promotion> promotions;

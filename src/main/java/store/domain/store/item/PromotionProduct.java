@@ -1,4 +1,4 @@
-package store.domain.item;
+package store.domain.store.item;
 
 public class PromotionProduct extends Product {
     private final Promotion promotion;
