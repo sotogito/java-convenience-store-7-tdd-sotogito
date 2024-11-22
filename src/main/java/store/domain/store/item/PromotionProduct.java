@@ -12,6 +12,7 @@ public class PromotionProduct extends Product {
     }
 
     public int getTotalPromotionCount(int purchaseQuantity) {
+        int a = promotion.calculatePromotionCount(purchaseQuantity);
         return promotion.calculatePromotionCount(purchaseQuantity);
     }
 

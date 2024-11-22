@@ -21,6 +21,13 @@ public class Product {
         return this.quantity >= quantity;
     }
 
+    public int getValidPromotionQuantity(int totalPurchaseQuantity) {
+        if (totalPurchaseQuantity > this.quantity) {
+            return quantity;
+        }
+        return totalPurchaseQuantity;
+    }
+
     public Product makeSoldOutProduct() {
         return new Product(this.name, this.price, 0);
     }

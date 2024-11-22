@@ -31,4 +31,14 @@ public class Cart {
         return result;
     }
 
+    public List<Order> getCanNotPromotionProductOrders() {
+        List<Order> result = new ArrayList<>();
+        for (Order order : promotionOrder) {
+            if (order.isCanNotPromotionProduct()) {
+                result.add(order);
+            }
+        }
+        return result;
+    }
+
 }

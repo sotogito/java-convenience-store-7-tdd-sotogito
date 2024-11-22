@@ -13,6 +13,17 @@ public class Order {
         this.quantity = quantity;
     }
 
+    public boolean isCanNotPromotionProduct() {
+        if (product instanceof PromotionProduct promotionProduct) {
+            int totalQuantityAfterPromotion = quantity + getAddablePromotionCount();
+            if (!promotionProduct.isSufficientQuantity(quantity) ||
+                    !promotionProduct.isSufficientQuantity(totalQuantityAfterPromotion)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean isCanAddablePromotionProduct() {
         if (product instanceof PromotionProduct promotionProduct) {
             int addableQuantity = getAddablePromotionCount();
@@ -36,8 +47,14 @@ public class Order {
         return 0;
     }
 
+    //note note 현재 {상품명} {수량}개는 프로모션 할인이 적용되지 않습니다. 그래도 구매하시겠습니까? (Y/N)
     public int getWithoutPromotionCount() {
-        return quantity - ((PromotionProduct) product).getTotalPromotionCount(quantity);
+        if (product instanceof PromotionProduct promotionProduct) {
+            int validPromotionalOrderQuantity = promotionProduct.getValidPromotionQuantity(quantity);
+            return quantity -
+                    ((PromotionProduct) product).getTotalPromotionCount(validPromotionalOrderQuantity);
+        }
+        return 0;
     }
 
 
