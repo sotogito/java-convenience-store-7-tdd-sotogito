@@ -74,9 +74,10 @@ public class Order {
         return product.getType();
     }
 
-    public Order makeNewGeneralProductOrder(int quantity, ConvenienceStoreroom storeroom) {
+    public Order makePromotionToGeneralProductByQuantity(int quantity, ConvenienceStoreroom storeroom) {
         return new Order(storeroom.findGeneralProductByName(product.getName()), quantity);
     }
+
 
     @Override
     public String toString() {

@@ -34,6 +34,7 @@ public class ProductReader {
                     Product promotionProduct = result.getLast();
                     if (!promotionProduct.isSameName(name)) {
                         result.add(promotionProduct.makeSoldOutProduct());
+                        havePromotion = false;
                     }
                 }
 

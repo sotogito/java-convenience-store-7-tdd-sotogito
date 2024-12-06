@@ -48,6 +48,12 @@ public class OrderService {
         if (answer.isYes()) {
             order.addPurchaseQuantity(addableQuantity);
         }
+        //note 콜라8개 6+2 -> 2개는 일반 상품으로
+        int withoutPromotionQuantity = order.getWithoutPromotionCount();
+
+        //현재 상품 재고 일반 상품으로
+        order.deletePurchaseQuantity(withoutPromotionQuantity);
+        cart.addOrder(order.makePromotionToGeneralProductByQuantity(withoutPromotionQuantity, storeroom));
     }
 
     //note 현재 {상품명} {수량}개는 프로모션 할인이 적용되지 않습니다. 그래도 구매하시겠습니까? (Y/N)
@@ -59,7 +65,7 @@ public class OrderService {
         if (answer.isYes()) {
             //note 일반 상품으로
             order.deletePurchaseQuantity(canNotPromotionQuantity);
-            cart.addOrder(order.makeNewGeneralProductOrder(canNotPromotionQuantity, storeroom));
+            cart.addOrder(order.makePromotionToGeneralProductByQuantity(canNotPromotionQuantity, storeroom));
             return;
         }
         order.deletePurchaseQuantity(canNotPromotionQuantity);
